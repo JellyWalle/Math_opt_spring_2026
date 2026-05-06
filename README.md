@@ -9,6 +9,8 @@
   - `numpy`
   - `matplotlib`
   - `setuptools`
+  - `pandas`
+  - `scipy`
 
 ## 1. Установка
 
@@ -24,7 +26,7 @@ git submodule update --init --recursive
 
 ### 1.2 Создание окружения conda:
 ```bash
-conda create -n opt_env python=3.10 numpy matplotlib setuptools -y
+conda create -n opt_env python=3.10 numpy matplotlib setuptools pandas scipy -y
 conda activate opt_env
 ```
 
@@ -38,3 +40,10 @@ pip install -e ./cec2017-py
 python src/plot_f1_f10.py
 ```
 Результаты сохраняются в папку **plots**
+
+## 3.1 Оптимизация 10-мерных случаев (scipy)
+```bash
+python src/optimize_scipy.py
+```
+Результаты сохраняются в папку **results/optimization_l_bfgs_b.csv**
+
