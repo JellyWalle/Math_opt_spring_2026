@@ -11,6 +11,8 @@
   - `setuptools`
   - `pandas`
   - `scipy`
+  - `pyswarms`
+  - `pygad`
 
 ## 1. Установка
 
@@ -26,7 +28,7 @@ git submodule update --init --recursive
 
 ### 1.2 Создание окружения conda:
 ```bash
-conda create -n opt_env python=3.10 numpy matplotlib setuptools pandas scipy -y
+conda create -n opt_env python=3.10 numpy matplotlib setuptools pandas scipy pyswarms pygad -y
 conda activate opt_env
 ```
 
@@ -46,4 +48,17 @@ python src/plot_f1_f10.py
 python src/optimize_scipy.py
 ```
 Результаты сохраняются в папку **results/optimization_l_bfgs_b.csv**
+
+## 3.2 Оптимизация 10-мерных случаев (PSO)
+```bash
+python src/optimize_pso.py
+```
+Результаты сохраняются в папку **results/optimization_pso.csv**
+
+## 3.3 Оптимизация 10-мерных случаев (GA)
+```bash
+python src/optimize_ga.py
+```
+Результаты сохраняются в папку **results/optimization_ga.csv**
+
 
