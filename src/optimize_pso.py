@@ -17,6 +17,9 @@ OUTPUT_CSV = "results/optimization_pso.csv"
 OUTPUT_TIME = "results/optimization_pso_time.csv"
 OUTPUT_PLOT = "results/optimization_pso.png"
 
+GLOBAL_SEED = 42
+FIXED_SEEDS = np.random.RandomState(GLOBAL_SEED).randint(0, 10000, size=N_RUNS).tolist()
+
 def main():
     os.makedirs("results", exist_ok=True)
     
@@ -35,6 +38,7 @@ def main():
 
         print(f"optimization PSO f{i}")
         for run in range(N_RUNS):
+            np.random.seed(FIXED_SEEDS[run])
             c1 = np.round(0.5 * np.random.random() + 0.25, 2)
             c2 = np.round(0.3 * np.random.random() + 0.1, 2)
             options = {'c1': c1, 'c2': c2, 'w': W}

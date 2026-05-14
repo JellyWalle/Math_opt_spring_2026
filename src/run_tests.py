@@ -31,7 +31,7 @@ def main():
     stat, p_friedman = stats.friedmanchisquare(*groups)
     
     print(f"статистика Фридмана: \chi^2 = {stat:.4f}") 
-    print(f"p-value:           {p_friedman:.6f}")
+    print(f"p-value: {p_friedman:.6f}")
 
 
     if p_friedman < 0.05:

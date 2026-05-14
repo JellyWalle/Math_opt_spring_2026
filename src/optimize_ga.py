@@ -14,6 +14,8 @@ POPULATION_SIZE = 20
 DOMAIN = (-100, 100)
 MUTATION_PERCENT_GENES = 10
 OUTPUT_CSV = "results/optimization_ga.csv"
+GLOBAL_SEED = 42
+FIXED_SEEDS = np.random.RandomState(GLOBAL_SEED).randint(0, 10000, size=N_RUNS).tolist()
 
 def make_fitness(cec_func):
     """Возвращает fitness-функцию с 3 параметрами"""
@@ -49,7 +51,7 @@ def main():
                 crossover_type="single_point",
                 mutation_type="random",
                 keep_elitism=1,
-                random_seed=None
+                random_seed=FIXED_SEEDS[run] 
             )
             ga_instance.run()
             _, best_fitness, _ = ga_instance.best_solution()

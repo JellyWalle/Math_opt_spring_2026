@@ -11,6 +11,8 @@ DOMAIN = (-100, 100) # границы
 METHOD = "L-BFGS-B" # метод
 MAX_ITER = 1000 # ограничение для оптимизатора
 
+GLOBAL_SEED = 42
+FIXED_SEEDS = np.random.RandomState(GLOBAL_SEED).randint(0, 10000, size=N_RUNS).tolist()
 
 def main():
     results = {f"f{i}": [] for i in range(1, 29)}
@@ -28,6 +30,7 @@ def main():
 
         print(f"оптимизация f{i}")
         for run in range(N_RUNS):
+            np.random.seed(FIXED_SEEDS[run])
             x0 = np.random.uniform(DOMAIN[0], DOMAIN[1], size=DIMENSION)
             res = minimize(
                 objective,
