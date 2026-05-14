@@ -13,6 +13,7 @@
   - `scipy`
   - `pyswarms`
   - `pygad`
+  - `scikit_posthocs`
 
 ## 1. Установка
 
