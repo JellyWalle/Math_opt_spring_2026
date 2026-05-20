@@ -72,6 +72,15 @@ def main():
     plt.savefig(OUTPUT_PLOT, dpi=200, bbox_inches="tight")
     plt.close()
     
+    df = pd.DataFrame(timings, index=range(N_RUNS)).drop(columns=["f2"], errors="ignore")
+    plt.figure(figsize=(20, 6))
+    df.boxplot(patch_artist=True, widths=0.6)
+    plt.title("PSO execution time (seconds)")
+    plt.xlabel("Функция"); plt.ylabel("Time (s)"); plt.xticks(rotation=45, ha="right")
+    plt.tight_layout()
+    plt.savefig(OUTPUT_PLOT.replace(".png", "_timings.png"), dpi=200, bbox_inches="tight")
+    plt.close()
+    
 
 if __name__ == "__main__":
     main()
